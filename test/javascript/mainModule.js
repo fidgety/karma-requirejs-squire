@@ -1,10 +1,9 @@
 define([
     'jquery',
-    'proclaim',
     'proxyRequire',
     'sinon',
     'javascript/mainModule'
-], function ($, proclaim, proxyRequire, sinon, mainModule) {
+], function ($, proxyRequire, sinon, mainModule) {
 
     describe('Main module', function () {
         beforeEach(function () {
@@ -19,7 +18,7 @@ define([
 
         it('should add a value to a hidden field when button is clicked', function (done) {
             mainModule.init();
-            proclaim.equal(true, false);
+            true.should.equal(false);
             done();
         });
 
