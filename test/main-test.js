@@ -39,4 +39,6 @@ require(tests, function () {
     mocha.setup('bdd');
     mocha.ignoreLeaks();
     mocha.run();
+
+    chai.should();
 });
