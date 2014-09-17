@@ -2,7 +2,6 @@ var tests = [];
 
 for (var file in window.__karma__.files) {
     if (/.*test\/javascript.*\.js/.test(file)) {
-        console.log(file);
         tests.push(file);
     }
 }
@@ -37,7 +36,7 @@ define('proxyRequire', ['squire'], function (Squire) {
 
 require(tests, function () {
     // start test run once requirejs is done
-    //mocha.setup('bdd');
-    //mocha.ignoreLeaks();
+    mocha.setup('bdd');
+    mocha.ignoreLeaks();
     mocha.run();
 });
