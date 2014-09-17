@@ -17,12 +17,22 @@ define([
         });
 
         it('should add a value to a hidden field when button is clicked', function (done) {
-            proclaim.equal(true, false);
+            mainModule.init();
+            $('.button').trigger('click')
+            proclaim.equal($('.fixture input').val(), 'clicked');
             done();
         });
 
-        it.skip('should call dependencyModule when button is clicked', function (done) {
-
+        it('should call dependencyModule when button is clicked', function (done) {
+            proxyRequire(['javascript/mainModule'], {
+                'javascript/dependencyModule': function () {
+                    done();
+                },
+                jquery: $
+            }, function (mainModuleProxied) {
+                mainModuleProxied.init();
+                $('.button').trigger('click')
+            })
         });
 
         it.skip('should call dependencyModule with click count each time the button is clicked', function (done) {
